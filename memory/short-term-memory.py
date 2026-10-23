@@ -68,7 +68,7 @@ agents = create_agent(
 agent_response = agents.invoke({
     "messages": [{
         "role": "user",
-        "content": "What is the gdp of india in 2026?"
+        "content": "future of ai engineering in 2027 in india"
     }]
 },config=config)
 
