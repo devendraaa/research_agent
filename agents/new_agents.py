@@ -141,22 +141,20 @@ def main():
         "callbacks": [langfuse_handler],
     }
 
-    user_query = "what is 2+2?"
-
-    agent_response = agent.invoke(
+    for message, metadata in agent.stream(
         {
             "messages": [
                 {
                     "role": "user",
-                    "content": user_query,
+                    "content": "what is 2+2",
                 }
             ]
-        },
+        }
         config=config,
-    )
+        stream_mode="messages"):
 
-    print("Thread ID:", config["configurable"]["thread_id"])
-    print("Agent Response 1:", agent_response["messages"][-1].content)
+        print(f"{message.content}")
+       
 
 
 if __name__ == "__main__":
